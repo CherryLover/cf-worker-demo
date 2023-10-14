@@ -1,14 +1,8 @@
 name = "db-com"
-main = "src/index.ts"
+main = "src/index.js"
 compatibility_date = "2023-08-23"
-usage_model = "bundled"
-env = { }
 
-[triggers]
-crons = [ ]
-
-[unsafe]
-  [[unsafe.bindings]]
-  database_id = "516fc90b-9ff8-4482-a548-b6e5b438fe21"
-  name = "DATABASE"
-  type = "d1"
+[[d1_databases]]
+name = "db-com-db"
+binding = "DATABASE"
+database_id = "516fc90b-9ff8-4482-a548-b6e5b438fe21"
