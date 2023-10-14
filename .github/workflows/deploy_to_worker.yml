@@ -1,0 +1,21 @@
+name: Deploy to Cloudflare Worker
+
+on:
+  push:
+    branches:
+      - main  # 部署主分支的推送，可以根据需要更改
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Deploy to Cloudflare Worker
+      uses: cloudflare/wrangler-action@3.0.0
+      with:
+        apiToken: ${{ secrets.CF_API_TOKEN }}  # 在 GitHub 仓库的 Secrets 中设置 CF_API_TOKEN
+        script: wrangler deploy
+        working-directory: .
